@@ -1,0 +1,28 @@
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <!--libraries-->
+    <script src="./bower_components/angular/angular.min.js"></script>
+    <script src="./bower_components/angular-route/angular-route.min.js"></script>
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!--libraries-->
+
+    <!--project imports-->
+    <script type="text/javascript" src="app/app.module.js"></script>
+    <script type="text/javascript" src="app/app.routes.js"></script>
+    <script src="app/controllers/jordanmain.controller.js"></script>
+    <!--project imports-->
+
+    <title>Jordan Demo</title>
+</head>
+
+<body ng-app="jordandemo" ng-controller="jordanCtr as vCtrl">
+    <div ng-include="'app/views/jordan.html'"></div>
+</body>
+
+</html>
