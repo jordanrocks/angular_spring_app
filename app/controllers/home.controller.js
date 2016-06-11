@@ -3,9 +3,12 @@
     'use strict';    
     angular
         .module('jordandemo')
-        .registerCtrl('jordanHomeController', jordanHomeController);
+        .ngcontroller('jordanHomeController', jordanHomeController);
 
-    function jordanHomeController() {
+    jordanHomeController.$inject = ['square'];
+
+
+    function jordanHomeController(square) {
         var vm = this;
         vm.welcome = "Landed to home page";
     }

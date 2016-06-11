@@ -1,43 +1,18 @@
-/*
-'use strict';
-    Creating a more synthesized form of service of $ controllerProvider.register
+/*factory be lazily load javascript script*/
+/*assuming that one follows naming convention*/
+(function () {
+    'use strict';
     angular
         .module('jordandemo')
-        .registerCtrl = $controllerProvider.register;
-    controller: $controllerProvider.register,
-        directive: $compileProvider.directive,
-        filter: $filterProvider.register,
-        factory: $provide.factory,
-        service: $provide.service
+        .factory('loadFactory', loadFactory);
 
-*/
-
-
-
-angular
-    .module('jordandemo')
-    .config(config);
-
-function config($controllerProvider, $compileProvider, $filterProvider, $provide) {
-    'use strict';
-    /*Creating a more synthesized form of service of $ controllerProvider.register*/
-    var jordandemoapp = angular.module('jordandemo');
-
-    jordandemoapp.ngcontroller = $controllerProvider.register;
-    jordandemoapp.ngdirective = $compileProvider.directive;
-    jordandemoapp.ngfilter = $filterProvider.register;
-    jordandemoapp.ngfactory = $provide.factory;
-    jordandemoapp.ngservice = $provide.service;
-
-}
-
-
-
-
-
-
-
-    /*function loadScript(path) {
+    function loadFactory() {
+        return {
+            loadObjects : loadObjects
+        }
+    }
+    
+    function loadScript(path) {
         var result = $.Deferred(), script = document.createElement("script");
         script.async = "async";
         script.type = "text/javascript";
@@ -57,7 +32,7 @@ function config($controllerProvider, $compileProvider, $filterProvider, $provide
         return result.promise();
     }
 
-    function loader(arrayName) {
+    function loadObjects(arrayName) {
 
         return {
             load: function ($q) {
@@ -84,4 +59,6 @@ function config($controllerProvider, $compileProvider, $filterProvider, $provide
                 return deferred.promise;
             }
         };
-    }*/
+    }
+})();
+    
